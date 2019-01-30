@@ -1,1 +1,1 @@
-const sayHello = name => console.log(`Hello ${name}`)
+import './scss/styles.scss'
