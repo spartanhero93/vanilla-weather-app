@@ -1,7 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const uglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -18,17 +15,6 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
     ],
   },
-  plugins: [
-    new uglifyJsPlugin(),
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
 }
