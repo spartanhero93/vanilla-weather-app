@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 
 const BUILD_DIR = path.resolve(__dirname, 'dist')
 const APP_DIR = path.resolve(__dirname, 'src')
@@ -56,6 +57,7 @@ module.exports = env => {
           'process.env.VERSION': JSON.stringify(process.env.VERSION),
           'process.env.PLATFORM': JSON.stringify(process.env.PLATFORM),
         }),
+        new Dotenv(),
         /** Static images variant:
          * new CopyWebpackPlugin([{ from: 'src/static' }])
          * */
