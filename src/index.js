@@ -5,6 +5,9 @@ class WeatherApp {
     this.input = document.getElementById('input')
     this.test = document.getElementById('test')
     this.fetchBtn = document.getElementById('fetch')
+    this.locationCity = document.getElementById('location__city')
+    this.locationTime = document.getElementById('location__time')
+    this.locationWeather = document.getElementById('location__weather')
     this.usersLat = ''
     this.usersLong = ''
   }
@@ -15,7 +18,6 @@ class WeatherApp {
       console.log(this.usersLat, '\n', this.usersLong)
     )
     this.fetchBtn.addEventListener('click', this.fetchWeather)
-
     this.usersLat && this.usersLong ? this.fetchWeather() : this.getUsersLocation()
   }
 
@@ -38,7 +40,18 @@ class WeatherApp {
           this.usersLong
         }&mode=json&APPID=${process.env.API_KEY}`
       )
+      this.renderData(data)
       console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  renderData = async ({ name, sys, weather, wind }) => {
+    try {
+      this.locationCity.textContent = await `${name} ${sys.country}`
+      this.locationTime.textContent = new Date().toDateString()
+      this.locationWeather.textContent = await weather.map(item => item.main)
     } catch (error) {
       console.error(error)
     }

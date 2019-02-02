@@ -21,6 +21,16 @@
   height: 70vh;
 }
 
+#content #location__city {
+  font-size: 3rem;
+}
+#content #location__time {
+  font-size: 2rem;
+}
+#content #location__weather {
+  font-size: 1.5rem;
+}
+
 #buttons {
   display: flex;
   justify-content: space-around;

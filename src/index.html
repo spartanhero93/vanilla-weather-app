@@ -11,7 +11,33 @@
     <div id="root">
       <header id="header"><h1>Welcome to the weather App</h1></header>
 
-      <div id="content"></div>
+      <div id="content">
+        <div id="location">
+          <div id="location__city"></div>
+          <div id="location__time"></div>
+          <div id="location__weather"></div>
+        </div>
+        <div id="details">
+          <div id="details__precipitation"></div>
+          <div id="details__humidity"></div>
+          <div id="details__wind"></div>
+        </div>
+        <div id="graph_buttons">
+          <button>Temperature</button>
+          <button>Precipitation</button>
+          <button>Wind</button>
+        </div>
+        <div id="graph"></div>
+        <div id="five_day_forecast">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <div id="buttons">
         <button id="fetch">Fetch Weather</button> <input type="text" id="input" />
         <button id="test">Get data</button>
